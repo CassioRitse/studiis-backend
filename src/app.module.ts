@@ -17,6 +17,11 @@ import { UserControllerModule } from './infra/controllers/user-controller.module
       validationSchema: Joi.object({
         JWT_SECRET: Joi.string().required(),
         DATABASE_URL: Joi.string().required(),
+        DB_NAME: Joi.string().required(),
+        DB_USER: Joi.string().required(),
+        DB_PASSWORD: Joi.string().required(),
+        DB_HOST: Joi.string().required(),
+        DB_PORT: Joi.number().required(),
       }),
       envFilePath: 'src/.env',
       isGlobal: true,
