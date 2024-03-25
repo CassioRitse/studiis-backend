@@ -1,10 +1,12 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  const configService = app.get<ConfigService>(ConfigService);
   app.enableCors({
     origin: true,
     credentials: true,
@@ -21,6 +23,6 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(3030);
+  await app.listen(configService.get<string>('PORT'));
 }
 bootstrap();

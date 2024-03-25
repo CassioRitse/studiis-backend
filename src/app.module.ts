@@ -22,6 +22,7 @@ import { UserControllerModule } from './infra/controllers/user-controller.module
         DB_PASSWORD: Joi.string().required(),
         DB_HOST: Joi.string().required(),
         DB_PORT: Joi.number().required(),
+        PORT: Joi.number().required(),
       }),
       envFilePath: 'src/.env',
       isGlobal: true,
