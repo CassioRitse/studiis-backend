@@ -23,6 +23,6 @@ async function bootstrap() {
     }),
   );
 
-  await app.listen(configService.get<string>('PORT'));
+  await app.listen(configService.get<string>('PORT'), '0.0.0.0');
 }
 bootstrap();
